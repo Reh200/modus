@@ -1,102 +1,153 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MODUS | Logística Rodoviária</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <title>MODUS | Inteligência Logística Rodoviária</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Open+Sans:wght@400;600&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="css/index.css">
 </head>
+
 <body>
 
     <nav class="navbar" id="mainNav">
         <div class="logo">MO<strong>DUS</strong></div>
         <ul class="nav-menu">
             <li><a href="#inicio">Início</a></li>
-            <li><a href="#veiculos">Frota</a></li>
-            <li><a href="#cargas">Cargas</a></li>
+            <li><a href="#leves">Leves</a></li>
+            <li><a href="#pesados">Pesados</a></li>
+            <li><a href="#cargas">Carrocerias</a></li>
+            <li><a href="game.html" class="nav-game">🎮 Desafio</a></li>
         </ul>
     </nav>
 
     <header class="hero" id="inicio">
-        <div class="hero-overlay">
-            <div class="hero-content">
-                <span class="tagline">Infraestrutura Nacional</span>
-                <h1>MODAL RODOVIÁRIO</h1>
-                <p>A força que move o PIB brasileiro através das estradas.</p>
-            </div>
+        <div class="hero-content">
+            <span class="tagline">Infraestrutura em Movimento</span>
+            <h1>Logística que Move o Brasil</h1>
+            <p>Do Last-Mile ao escoamento de safras: conheça todos os veículos do modal rodoviário.</p>
         </div>
     </header>
 
-<main class="container">
-        
-        <section id="veiculos" class="section-container">
+    <main class="container">
+
+        <section id="leves" class="section-container">
             <div class="section-title">
-                <span>Frota</span>
-                <h2>Caminhões Simples</h2>
+                <span>Distribuição Urbana</span>
+                <h2>Utilitários e Leves</h2>
             </div>
             <div class="cards-grid">
                 <div class="card">
+                    <div class="card-icon">🚗</div>
+                    <h3>Veículos de Passeio</h3>
+                    <p>Carros hatch e sedan para entregas rápidas, documentos e logística de vizinhança.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🚐</div>
+                    <h3>Vans e Furgões</h3>
+                    <p>Sprinter, Fiorino e similares. Essenciais para o e-commerce e entregas fracionadas.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🛻</div>
+                    <h3>Caminhonetes</h3>
+                    <p>Pick-ups robustas para terrenos mistos e transporte de materiais de manutenção.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="pesados" class="section-container">
+            <div class="section-title">
+                <span>Transporte Intermunicipal</span>
+                <h2>Caminhões Rígidos</h2>
+            </div>
+            <div class="cards-grid">
+                <div class="card highlight">
                     <div class="card-icon">🚚</div>
                     <h3>VUC & 3/4</h3>
-                    <p>Especialistas em logística urbana e perímetros de difícil acesso.</p>
+                    <p>Veículo Urbano de Carga. O maior porte permitido em centros com restrição.</p>
                 </div>
-                <div class="card">
+                <div class="card highlight">
                     <div class="card-icon">🚛</div>
-                    <h3>Toco (2 eixos)</h3>
-                    <p>Capacidade para 6t. Ideal para mudanças e cargas secas diretas.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon">🚛</div>
-                    <h3>Truck (3 eixos)</h3>
-                    <p>O braço direito da indústria. Suporta até 12t de carga útil.</p>
+                    <h3>Toco & Truck</h3>
+                    <p>De 2 a 3 eixos. A base da logística industrial e construção civil brasileira.</p>
                 </div>
             </div>
         </section>
 
         <section class="section-container">
             <div class="section-title">
-                <span>Alta Capacidade</span>
+                <span>Alta Capacidade GWP</span>
                 <h2>Conjuntos Articulados</h2>
             </div>
             <div class="cards-grid">
-                <div class="card premium">
+                <div class="card dark-card">
                     <h3>Carreta Standard</h3>
-                    <p>O modelo mais comum nas estradas brasileiras. Versátil para diversos semirreboques.</p>
+                    <p>Composição versátil de cavalo mecânico + semirreboque de 3 eixos.</p>
                 </div>
-                <div class="card premium">
-                    <h3>Bitrem</h3>
-                    <p>Dois semirreboques acoplados. Alta eficiência em rotas de longa distância.</p>
+                <div class="card dark-card">
+                    <h3>Bitrem / Rodotrem</h3>
+                    <p>Combinações de 7 a 9 eixos para transporte massivo de grãos e minérios.</p>
                 </div>
-                <div class="card premium">
-                    <h3>Rodotrem & Treminhão</h3>
-                    <p>Gigantes do agronegócio e setor sucroalcoleiro. Requerem AET para circulação.</p>
+                <div class="card dark-card">
+                    <h3>Treminhão</h3>
+                    <p>Conjunto específico para o setor sucroalcooleiro (transporte de cana).</p>
                 </div>
             </div>
         </section>
 
         <section id="cargas" class="section-container">
             <div class="section-title">
-                <span>Especialização</span>
-                <h2>Tipos de Carroceria</h2>
+                <span>Especificações</span>
+                <h2>Indicações de Carroceria</h2>
             </div>
             <div class="responsive-table">
                 <table>
                     <thead>
                         <tr>
                             <th>Carroceria</th>
-                            <th>Função</th>
-                            <th>Principais Cargas</th>
+                            <th>Uso Ideal</th>
+                            <th>Exemplos de Carga</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr><td><strong>Baú</strong></td><td>Proteção Total</td><td>Eletrônicos e Carga Fracionada</td></tr>
-                        <tr><td><strong>Sider</strong></td><td>Carga Lateral</td><td>Bebidas e Paletizados</td></tr>
-                        <tr><td><strong>Graneleiro</strong></td><td>Escoamento</td><td>Soja, Milho e Grãos</td></tr>
-                        <tr><td><strong>Tanque</strong></td><td>Fluidez</td><td>Combustíveis e Químicos</td></tr>
-                        <tr><td><strong>Frigorífico</strong></td><td>Térmica</td><td>Carnes e Congelados</td></tr>
-                        <tr><td><strong>Cegonha</strong></td><td>Veicular</td><td>Carros de passeio e utilitários</td></tr>
-                        <tr><td><strong>Prancha</strong></td><td>Sob Medida</td><td>Maquinário Agrícola e Industrial</td></tr>
+                        <tr>
+                            <td><strong>Baú</strong></td>
+                            <td>Carga Geral</td>
+                            <td>Eletrônicos, caixas e têxteis.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Sider</strong></td>
+                            <td>Carga Paletizada</td>
+                            <td>Bebidas e produtos de higiene.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Graneleiro</strong></td>
+                            <td>Sólidos a granel</td>
+                            <td>Soja, milho e adubos.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Tanque</strong></td>
+                            <td>Líquidos/Gases</td>
+                            <td>Combustível, água e químicos.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Frigorífica</strong></td>
+                            <td>Controle Térmico</td>
+                            <td>Carnes, vacinas e congelados.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Cegonha</strong></td>
+                            <td>Veículos</td>
+                            <td>Carros zero quilômetro.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Prancha</strong></td>
+                            <td>Carga Especial</td>
+                            <td>Tratores e pás eólicas.</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -105,9 +156,10 @@
     </main>
 
     <footer>
-        <p>&copy; 2026 MODUS - Logística e Tecnologia. Inteligência em Movimento.</p>
+        <p>&copy; 2026 MODUS Logística Tech - Soluções em Transporte Rodoviário</p>
     </footer>
 
     <script src="js/index.js"></script>
 </body>
+
 </html>
