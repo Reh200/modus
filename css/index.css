@@ -1,204 +1,210 @@
-/* MODUS - CSS PREMIUM DARK MODE */
+/* MODUS LOGÍSTICA - PREMIUM BLOG STYLE
+   v3.5 - 2026 Edition 
+*/
+
 :root {
     --primary: #f39c12;
-    --primary-alt: #d35400;
     --dark-bg: #0f172a;
-    --card-bg: #1e293b;
-    --text-white: #f8fafc;
-    --text-gray: #94a3b8;
+    --card-bg: #ffffff;
+    --text-main: #1e293b;
+    --text-gray: #64748b;
+    --bg-body: #f1f5f9;
     --transition: all 0.3s ease;
 }
 
+/* Reset & Base */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+html { scroll-behavior: smooth; }
+
 body {
     font-family: 'Open Sans', sans-serif;
-    background-color: var(--dark-bg);
-    color: var(--text-white);
+    background-color: var(--bg-body);
+    color: var(--text-main);
     line-height: 1.6;
-    overflow-x: hidden;
 }
 
-/* Navbar Glassmorphism */
+/* --- NAVBAR (GLASSMORPISM DARK) --- */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.5rem 8%;
-    background: rgba(15, 23, 42, 0.8);
+    padding: 1rem 10%;
+    background: rgba(15, 23, 42, 0.95);
     backdrop-filter: blur(10px);
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .logo {
+    color: #fff;
     font-family: 'Montserrat', sans-serif;
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     font-weight: 800;
 }
 
 .logo strong { color: var(--primary); }
 
-.nav-game {
-    color: var(--primary) !important; /* Deixa o link laranja */
-    border: 1px solid var(--primary);
-    padding: 5px 15px;
-    border-radius: 20px;
-    transition: all 0.3s ease;
-}
-
-.nav-game:hover {
-    background: var(--primary);
-    color: var(--dark-deep) !important;
-    box-shadow: 0 0 10px var(--primary-glow);
-}
-
 .nav-menu {
     display: flex;
     list-style: none;
-    gap: 2rem;
+    gap: 1.5rem;
+    align-items: center;
 }
 
-.nav-menu li a {
-    color: var(--text-white);
+.nav-menu a {
+    color: #fff;
     text-decoration: none;
+    font-size: 0.8rem;
     font-weight: 600;
-    font-size: 0.85rem;
     text-transform: uppercase;
     transition: var(--transition);
 }
 
-.nav-menu li a:hover { color: var(--primary); }
+.nav-menu a:hover { color: var(--primary); }
 
-/* Hero */
+.nav-game {
+    border: 1.5px solid var(--primary);
+    padding: 6px 18px;
+    border-radius: 25px;
+    color: var(--primary) !important;
+}
+
+.nav-game:hover {
+    background: var(--primary);
+    color: var(--dark-bg) !important;
+}
+
+/* --- HERO --- */
 .hero {
-    height: 80vh;
-    background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.7)), 
-                url('../img/modal-rodoviario.png') center/cover no-repeat;
+    height: 50vh;
+    background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)), 
+                url('https://images.unsplash.com/photo-1519003722824-194d4455a60c?q=80&w=1200') center/cover;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 0 1rem;
+    color: white;
+    padding-top: 80px;
 }
 
 .hero h1 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: clamp(2rem, 5vw, 4rem);
-    margin-bottom: 1rem;
+    font-family: 'Montserrat';
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    text-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
-.tagline {
-    color: var(--primary);
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    font-weight: 700;
-}
-
-/* Layout */
+/* --- BLOG LAYOUT --- */
 .container {
     max-width: 1200px;
-    margin: 4rem auto;
-    padding: 0 1.5rem;
+    margin: 0 auto;
+    padding: 4rem 1.5rem;
 }
 
-.section-container { margin-bottom: 6rem; }
-
 .section-title {
-    text-align: center;
     margin-bottom: 3rem;
 }
 
 .section-title span {
     color: var(--primary);
-    font-size: 0.8rem;
     text-transform: uppercase;
-    letter-spacing: 2px;
     font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
 }
 
-.section-title h2 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 2.2rem;
-    margin-top: 0.5rem;
-}
-
-/* Cards */
-.cards-grid {
+/* Featured Posts (Top 2) */
+.blog-featured {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 4rem;
 }
 
-.card {
+.post-large {
     background: var(--card-bg);
-    padding: 2.5rem;
     border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
     transition: var(--transition);
 }
 
-.card:hover {
-    transform: translateY(-10px);
-    border-color: var(--primary);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+.post-large:hover { transform: translateY(-8px); }
+
+.post-img {
+    height: 280px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
 }
 
-.card-icon { font-size: 2.5rem; margin-bottom: 1rem; display: block; }
+.category-tag {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: var(--primary);
+    color: #fff;
+    padding: 5px 12px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: 800;
+}
 
-.card h3 { color: var(--primary); margin-bottom: 1rem; }
+.post-info { padding: 2rem; }
+.meta { font-size: 0.8rem; color: var(--text-gray); margin-bottom: 1rem; }
+.post-info h2 { font-family: 'Montserrat'; font-size: 1.5rem; margin-bottom: 1rem; }
 
-.card p { color: var(--text-gray); font-size: 0.95rem; }
+/* Grid Posts (Bottom 4) */
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+}
 
-.highlight { border-top: 4px solid var(--primary); }
-
-.dark-card { background: #111827; }
-
-/* Tabela */
-.responsive-table {
-    overflow-x: auto;
+.post-small {
     background: var(--card-bg);
+    padding: 1.5rem;
     border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    display: flex;
+    flex-direction: column;
 }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
+.small-img {
+    height: 180px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+    margin-bottom: 1.2rem;
 }
 
-th, td {
-    padding: 1.2rem;
-    text-align: left;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-th {
-    background: #000;
-    color: var(--primary);
-    text-transform: uppercase;
-    font-size: 0.8rem;
-}
-
-tr:hover { background: rgba(255, 255, 255, 0.02); }
+.post-small h3 { font-family: 'Montserrat'; font-size: 1.1rem; margin-bottom: 0.8rem; }
+.post-small p { font-size: 0.9rem; color: var(--text-gray); flex-grow: 1; }
+.small-meta { margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid #edf2f7; font-size: 0.75rem; color: var(--text-gray); }
 
 /* Footer */
 footer {
-    padding: 3rem;
+    padding: 4rem 1rem;
     background: #070b14;
+    color: #94a3b8;
     text-align: center;
-    color: var(--text-gray);
-    font-size: 0.85rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* --- RESPONSIVIDADE --- */
+@media (max-width: 992px) {
+    .blog-featured { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 768px) {
-    .nav-menu { display: none; }
-    .hero h1 { font-size: 2.2rem; }
+    .navbar { flex-direction: column; padding: 1rem; }
+    .nav-menu { margin-top: 1rem; gap: 1rem; font-size: 0.7rem; }
+    .hero { height: 40vh; }
+    .container { padding: 2rem 1.5rem; }
 }

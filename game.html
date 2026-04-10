@@ -1,12 +1,17 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MODUS Game | Logística em Ação</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Open+Sans:wght@400;600&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="css/game.css">
 </head>
+
 <body>
 
     <nav class="game-nav">
@@ -17,17 +22,25 @@
     <div class="game-wrapper">
         <header class="game-header">
             <h1>Desafio Carga Certa</h1>
-            <p>Leve a mercadoria até o transporte correto!</p>
+            <p>Arraste a mercadoria até o veículo de transporte adequado!</p>
         </header>
 
         <div class="stats-container">
-            <div class="stat-card">Pontos: <span id="score">0</span></div>
-            <div class="stat-card">Tempo: <span id="timer">30</span>s</div>
+            <div class="stat-card">
+                <span>Pontuação</span>
+                <div id="score">0</div>
+            </div>
+            <div class="stat-card">
+                <span>Tempo Restante</span>
+                <div><span id="timer">30</span>s</div>
+            </div>
         </div>
 
         <div class="arena">
             <div class="cargo-box">
-                <div id="drag-item" class="cargo-element" draggable="false">Clique em Iniciar</div>
+                <div id="drag-item" class="cargo-element" draggable="false">
+                    Clique em Iniciar
+                </div>
             </div>
 
             <div class="drop-zones">
@@ -36,11 +49,13 @@
                     <strong>Utilitários</strong>
                     <small>Vans e Pickups</small>
                 </div>
+
                 <div class="zone" data-target="pesados">
                     <span class="icon">🚛</span>
                     <strong>Pesados</strong>
                     <small>Trucks e Rodotrens</small>
                 </div>
+
                 <div class="zone" data-target="especiais">
                     <span class="icon">🚜</span>
                     <strong>Especiais</strong>
@@ -56,4 +71,5 @@
 
     <script src="js/game.js"></script>
 </body>
+
 </html>

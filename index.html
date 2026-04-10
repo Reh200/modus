@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MODUS | Inteligência Logística Rodoviária</title>
+    <title>MODUS | Inteligência Logística</title>
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Open+Sans:wght@400;600&display=swap"
         rel="stylesheet">
@@ -13,14 +13,13 @@
 
 <body>
 
-    <nav class="navbar" id="mainNav">
+    <nav class="navbar">
         <div class="logo">MO<strong>DUS</strong></div>
         <ul class="nav-menu">
             <li><a href="#inicio">Início</a></li>
-            <li><a href="#leves">Leves</a></li>
-            <li><a href="#pesados">Pesados</a></li>
-            <li><a href="#cargas">Carrocerias</a></li>
-            <li><a href="game.html" class="nav-game">🎮 Desafio</a></li>
+            <li><a href="#destaques">Destaques</a></li>
+            <li><a href="#artigos">Cargas</a></li>
+            <li><a href="game.html" class="nav-game">🎮 Mini-Game</a></li>
         </ul>
     </nav>
 
@@ -28,138 +27,84 @@
         <div class="hero-content">
             <span class="tagline">Infraestrutura em Movimento</span>
             <h1>Logística que Move o Brasil</h1>
-            <p>Do Last-Mile ao escoamento de safras: conheça todos os veículos do modal rodoviário.</p>
         </div>
     </header>
 
     <main class="container">
 
-        <section id="leves" class="section-container">
-            <div class="section-title">
-                <span>Distribuição Urbana</span>
-                <h2>Utilitários e Leves</h2>
-            </div>
-            <div class="cards-grid">
-                <div class="card">
-                    <div class="card-icon">🚗</div>
-                    <h3>Veículos de Passeio</h3>
-                    <p>Carros hatch e sedan para entregas rápidas, documentos e logística de vizinhança.</p>
+        <section id="destaques" class="blog-featured">
+            <article class="post-large">
+                <div class="post-img"
+                    style="background-image: url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=600');">
+                    <span class="category-tag">Carga Geral</span>
                 </div>
-                <div class="card">
-                    <div class="card-icon">🚐</div>
-                    <h3>Vans e Furgões</h3>
-                    <p>Sprinter, Fiorino e similares. Essenciais para o e-commerce e entregas fracionadas.</p>
+                <div class="post-info">
+                    <div class="meta">Laura Fernandes • 10 de abr de 2026</div>
+                    <h2>Baú: A versatilidade na Carga Geral</h2>
+                    <p>Descubra como os baús protegem eletrônicos, caixas e têxteis, garantindo a integridade total da
+                        carga no transporte rodoviário.</p>
                 </div>
-                <div class="card">
-                    <div class="card-icon">🛻</div>
-                    <h3>Caminhonetes</h3>
-                    <p>Pick-ups robustas para terrenos mistos e transporte de materiais de manutenção.</p>
+            </article>
+
+            <article class="post-large">
+                <div class="post-img"
+                    style="background-image: url('https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?q=80&w=600');">
+                    <span class="category-tag">Paletizada</span>
                 </div>
-            </div>
+                <div class="post-info">
+                    <div class="meta">Lara Oliveira • 09 de abr de 2026</div>
+                    <h2>Sider: Agilidade na Carga e Descarga</h2>
+                    <p>Otimize sua logística de bebidas e produtos de higiene com o sistema Sider, o rei da praticidade
+                        paletizada.</p>
+                </div>
+            </article>
         </section>
 
-        <section id="pesados" class="section-container">
-            <div class="section-title">
-                <span>Transporte Intermunicipal</span>
-                <h2>Caminhões Rígidos</h2>
-            </div>
-            <div class="cards-grid">
-                <div class="card highlight">
-                    <div class="card-icon">🚚</div>
-                    <h3>VUC & 3/4</h3>
-                    <p>Veículo Urbano de Carga. O maior porte permitido em centros com restrição.</p>
-                </div>
-                <div class="card highlight">
-                    <div class="card-icon">🚛</div>
-                    <h3>Toco & Truck</h3>
-                    <p>De 2 a 3 eixos. A base da logística industrial e construção civil brasileira.</p>
-                </div>
-            </div>
-        </section>
+        <section id="artigos" class="blog-grid">
 
-        <section class="section-container">
-            <div class="section-title">
-                <span>Alta Capacidade GWP</span>
-                <h2>Conjuntos Articulados</h2>
-            </div>
-            <div class="cards-grid">
-                <div class="card dark-card">
-                    <h3>Carreta Standard</h3>
-                    <p>Composição versátil de cavalo mecânico + semirreboque de 3 eixos.</p>
+            <article class="post-small">
+                <div class="small-img" style="background-image: url('img/carroceria-graneleiro-01.webp');"></div>
+                <h3>Graneleiro e o Agronegócio</h3>
+                <p>O transporte essencial de soja, milho e adubos pelo país.</p>
+                <div class="small-meta">
+                    <span class="date">08 Abr, 2026</span> • <span class="time">12:20</span>
                 </div>
-                <div class="card dark-card">
-                    <h3>Bitrem / Rodotrem</h3>
-                    <p>Combinações de 7 a 9 eixos para transporte massivo de grãos e minérios.</p>
-                </div>
-                <div class="card dark-card">
-                    <h3>Treminhão</h3>
-                    <p>Conjunto específico para o setor sucroalcooleiro (transporte de cana).</p>
-                </div>
-            </div>
-        </section>
+            </article>
 
-        <section id="cargas" class="section-container">
-            <div class="section-title">
-                <span>Especificações</span>
-                <h2>Indicações de Carroceria</h2>
-            </div>
-            <div class="responsive-table">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Carroceria</th>
-                            <th>Uso Ideal</th>
-                            <th>Exemplos de Carga</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Baú</strong></td>
-                            <td>Carga Geral</td>
-                            <td>Eletrônicos, caixas e têxteis.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Sider</strong></td>
-                            <td>Carga Paletizada</td>
-                            <td>Bebidas e produtos de higiene.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Graneleiro</strong></td>
-                            <td>Sólidos a granel</td>
-                            <td>Soja, milho e adubos.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Tanque</strong></td>
-                            <td>Líquidos/Gases</td>
-                            <td>Combustível, água e químicos.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Frigorífica</strong></td>
-                            <td>Controle Térmico</td>
-                            <td>Carnes, vacinas e congelados.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Cegonha</strong></td>
-                            <td>Veículos</td>
-                            <td>Carros zero quilômetro.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Prancha</strong></td>
-                            <td>Carga Especial</td>
-                            <td>Tratores e pás eólicas.</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
+            <article class="post-small">
+                <div class="small-img" style="background-image: url('img/tanque.jpg');"></div>
+                <h3>Tanques: Líquidos e Gases</h3>
+                <p>Segurança no transporte de combustíveis e produtos químicos.</p>
+                <div class="small-meta">
+                    <span class="date">08 Abr, 2026</span> • <span class="time">16:45</span>
+                </div>
+            </article>
 
+            <article class="post-small">
+                <div class="small-img" style="background-image: url('img/bau-frigorifico.jpeg');"></div>
+                <h3>Logística de Frio</h3>
+                <p>O desafio do controle térmico para carnes e congelados.</p>
+                <div class="small-meta">
+                    <span class="date">09 Abr, 2026</span> • <span class="time">06:30</span>
+                </div>
+            </article>
+
+            <article class="post-small">
+                <div class="small-img" style="background-image: url('img/cegonha.jpg');"></div>
+                <h3>Cegonha e Prancha</h3>
+                <p>Transporte de veículos e cargas especiais como pás eólicas.</p>
+                <div class="small-meta">
+                    <span class="date">09 Abr, 2026</span> • <span class="time">09:15</span>
+                </div>
+            </article>
+
+        </section>
     </main>
 
     <footer>
-        <p>&copy; 2026 MODUS Logística Tech - Soluções em Transporte Rodoviário</p>
+        <p>&copy; 2026 MODUS Logística Tech</p>
     </footer>
 
-    <script src="js/index.js"></script>
 </body>
 
 </html>

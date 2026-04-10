@@ -1,134 +1,191 @@
+/* MODUS GAME - ULTRA EDITION 2026 */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
 :root {
     --primary: #f39c12;
-    --dark: #0f172a;
-    --surface: #1e293b;
-    --white: #f8fafc;
+    --primary-glow: rgba(243, 156, 18, 0.4);
+    --dark-bg: #070b14;
+    --card-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --text-main: #f8fafc;
+    --text-dim: #94a3b8;
+    --accent-blue: #38bdf8;
+    --success: #22c55e;
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 body {
-    font-family: 'Open Sans', sans-serif;
-    background-color: var(--dark);
-    color: var(--white);
+    background: radial-gradient(circle at top right, #1e293b, #070b14);
+    color: var(--text-main);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    height: 100vh;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
 }
 
+/* --- NAVBAR FUTURISTA --- */
 .game-nav {
     display: flex;
     justify-content: space-between;
-    padding: 1rem 5%;
-    background: rgba(0,0,0,0.2);
+    align-items: center;
+    padding: 0 5%;
+    height: 60px;
+    background: rgba(7, 11, 20, 0.8);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--glass-border);
 }
 
-.logo strong { color: var(--primary); }
+.logo { font-family: 'Montserrat'; font-weight: 800; font-size: 1.4rem; letter-spacing: -1px; }
+.logo strong { color: var(--primary); text-shadow: 0 0 15px var(--primary-glow); }
 
-.back-link { color: var(--white); text-decoration: none; font-size: 0.9rem; }
+.back-link {
+    color: var(--text-dim);
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 600;
+    transition: 0.3s;
+    border: 1px solid var(--glass-border);
+    padding: 8px 16px;
+    border-radius: 8px;
+}
 
+.back-link:hover { color: #fff; background: var(--glass-border); }
+
+/* --- CONTEÚDO PRINCIPAL --- */
 .game-wrapper {
     flex: 1;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    padding: 2rem;
-}
-
-.game-header { text-align: center; margin-bottom: 2rem; }
-.game-header h1 { font-family: 'Montserrat', sans-serif; color: var(--primary); font-size: 2.5rem; }
-
-.stats-container {
-    display: flex;
-    gap: 2rem;
-    margin-bottom: 2rem;
-}
-
-.stat-card {
-    background: var(--surface);
-    padding: 1rem 2rem;
-    border-radius: 10px;
-    font-size: 1.2rem;
-    font-weight: 700;
-    border: 1px solid rgba(255,255,255,0.1);
-}
-
-#timer { color: #e74c3c; }
-#score { color: #2ecc71; }
-
-.arena {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 3rem;
-    width: 100%;
-    max-width: 800px;
-}
-
-.cargo-box {
-    height: 120px;
-    width: 300px;
-    display: flex;
     justify-content: center;
     align-items: center;
-    background: rgba(0,0,0,0.3);
-    border-radius: 15px;
-    border: 2px dashed rgba(255,255,255,0.1);
+    padding: 20px;
+    gap: 20px;
 }
 
+.game-header { text-align: center; }
+.game-header h1 { 
+    font-family: 'Montserrat'; 
+    font-size: 2rem; 
+    background: linear-gradient(to right, #fff, #94a3b8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 5px;
+}
+.game-header p { color: var(--text-dim); font-size: 0.9rem; }
+
+/* --- STATS DASHBOARD --- */
+.stats-container { display: flex; gap: 20px; }
+
+.stat-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    padding: 12px 25px;
+    border-radius: 16px;
+    text-align: center;
+    min-width: 140px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.stat-card span { font-size: 0.65rem; text-transform: uppercase; color: var(--text-dim); letter-spacing: 1px; }
+#score, #timer { font-size: 1.4rem; font-weight: 800; color: var(--primary); }
+
+/* --- ARENA DE CARGA (GLASSMORPHISM) --- */
+.arena {
+    width: 100%;
+    max-width: 850px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    padding: 30px;
+    position: relative;
+}
+
+/* O Item a ser arrastado */
 .cargo-element {
-    background: var(--primary);
-    color: var(--dark);
-    padding: 1.5rem 2rem;
-    border-radius: 8px;
+    background: linear-gradient(135deg, var(--primary), #e67e22);
+    color: #000;
+    padding: 18px 40px;
+    border-radius: 14px;
     font-weight: 800;
-    cursor: default;
-    transition: transform 0.2s;
-}
-
-.cargo-element[draggable="true"] {
+    font-size: 1.2rem;
     cursor: grab;
+    box-shadow: 0 0 30px var(--primary-glow);
+    transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: inline-block;
+    border: none;
 }
 
-.cargo-element:active { cursor: grabbing; }
+.cargo-element:active { transform: scale(0.95) rotate(-2deg); cursor: grabbing; }
 
+.cargo-box { display: flex; justify-content: center; margin-bottom: 35px; }
+
+/* Zonas de Drop - Estilo Grid Industrial */
 .drop-zones {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1rem;
-    width: 100%;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
 }
 
 .zone {
-    background: var(--surface);
-    padding: 2rem;
-    border-radius: 15px;
-    text-align: center;
-    border: 2px solid transparent;
+    background: rgba(15, 23, 42, 0.5);
+    border: 1px solid var(--glass-border);
+    padding: 20px 10px;
+    border-radius: 18px;
     transition: 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.zone.drag-over {
-    border-color: var(--primary);
-    background: rgba(243, 156, 18, 0.1);
-    transform: scale(1.05);
+.zone .icon { font-size: 2.2rem; margin-bottom: 10px; filter: drop-shadow(0 0 10px rgba(255,255,255,0.2)); }
+.zone strong { color: #fff; font-size: 0.9rem; margin-bottom: 4px; }
+.zone small { color: var(--text-dim); font-size: 0.7rem; }
+
+/* Estados da Zona */
+.zone.hover { 
+    background: rgba(56, 189, 248, 0.1); 
+    border-color: var(--accent-blue);
+    transform: translateY(-5px);
 }
 
-.zone .icon { font-size: 2.5rem; display: block; margin-bottom: 0.5rem; }
+/* --- BOTÃO DE AÇÃO --- */
+.controls { width: 100%; display: flex; justify-content: center; }
 
-.controls #btn-play {
-    margin-top: 2rem;
-    background: var(--primary);
+#btn-play {
+    background: #fff;
+    color: #000;
     border: none;
-    padding: 1rem 3rem;
-    font-size: 1.1rem;
+    padding: 16px 60px;
+    font-size: 1rem;
     font-weight: 800;
-    border-radius: 50px;
+    border-radius: 14px;
     cursor: pointer;
+    transition: 0.3s;
     text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-.controls #btn-play:disabled {
-    background: #7f8c8d;
-    cursor: not-allowed;
+#btn-play:hover {
+    background: var(--primary);
+    transform: scale(1.05);
+    box-shadow: 0 0 40px var(--primary-glow);
+}
+
+/* Efeito de Scanline (Opcional - Estilo Sci-fi) */
+.arena::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%), 
+                linear-gradient(90deg, rgba(255, 0, 0, 0.02), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.02));
+    background-size: 100% 4px, 3px 100%;
+    pointer-events: none;
+    border-radius: 24px;
 }
