@@ -6,44 +6,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MODUS Game | Logística em Ação</title>
 
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Open+Sans:wght@400;600&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/game.css">
 </head>
 
 <body>
 
+    <!-- NAV -->
     <nav class="game-nav">
         <div class="logo">MO<strong>DUS</strong></div>
         <a href="index.html" class="back-link">← Sair do Jogo</a>
     </nav>
 
+    <!-- GAME -->
     <div class="game-wrapper">
+
         <header class="game-header">
             <h1>Desafio Carga Certa</h1>
-            <p>Arraste a mercadoria até o veículo de transporte adequado!</p>
+            <p>Arraste a mercadoria até o veículo correto.</p>
         </header>
 
+        <!-- STATS -->
         <div class="stats-container">
             <div class="stat-card">
                 <span>Pontuação</span>
                 <div id="score">0</div>
             </div>
+
             <div class="stat-card">
-                <span>Tempo Restante</span>
-                <div><span id="timer">30</span>s</div>
+                <span>Tempo</span>
+                <div><span id="timer">60</span>s</div>
             </div>
         </div>
 
+        <!-- ARENA -->
         <div class="arena">
+
             <div class="cargo-box">
                 <div id="drag-item" class="cargo-element" draggable="false">
-                    Clique em Iniciar
+                    Aguardando início da operação
                 </div>
             </div>
 
             <div class="drop-zones">
+
                 <div class="zone" data-target="leves">
                     <span class="icon">🚐</span>
                     <strong>Utilitários</strong>
@@ -53,20 +59,23 @@
                 <div class="zone" data-target="pesados">
                     <span class="icon">🚛</span>
                     <strong>Pesados</strong>
-                    <small>Trucks e Rodotrens</small>
+                    <small>Truck e Rodotrem</small>
                 </div>
 
                 <div class="zone" data-target="especiais">
                     <span class="icon">🚜</span>
                     <strong>Especiais</strong>
-                    <small>Pranchas e Cegonhas</small>
+                    <small>Prancha e Cegonha</small>
                 </div>
+
             </div>
         </div>
 
+        <!-- CONTROLES -->
         <div class="controls">
             <button id="btn-play">Iniciar Operação</button>
         </div>
+
     </div>
 
     <script src="js/game.js"></script>

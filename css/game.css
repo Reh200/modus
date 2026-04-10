@@ -11,6 +11,7 @@
     --text-dim: #94a3b8;
     --accent-blue: #38bdf8;
     --success: #22c55e;
+    --error: #ef4444;
 }
 
 * {
@@ -29,7 +30,7 @@ body {
     flex-direction: column;
 }
 
-/* --- NAVBAR FUTURISTA --- */
+/* NAVBAR */
 .game-nav {
     display: flex;
     justify-content: space-between;
@@ -41,8 +42,17 @@ body {
     border-bottom: 1px solid var(--glass-border);
 }
 
-.logo { font-family: 'Montserrat'; font-weight: 800; font-size: 1.4rem; letter-spacing: -1px; }
-.logo strong { color: var(--primary); text-shadow: 0 0 15px var(--primary-glow); }
+.logo {
+    font-family: 'Montserrat';
+    font-weight: 800;
+    font-size: 1.4rem;
+    letter-spacing: -1px;
+}
+
+.logo strong {
+    color: var(--primary);
+    text-shadow: 0 0 15px var(--primary-glow);
+}
 
 .back-link {
     color: var(--text-dim);
@@ -55,78 +65,104 @@ body {
     border-radius: 8px;
 }
 
-.back-link:hover { color: #fff; background: var(--glass-border); }
+.back-link:hover {
+    color: #fff;
+    background: var(--glass-border);
+}
 
-/* --- CONTEÚDO PRINCIPAL --- */
+/* WRAPPER */
 .game-wrapper {
     flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 18px;
     padding: 20px;
-    gap: 20px;
 }
 
-.game-header { text-align: center; }
-.game-header h1 { 
-    font-family: 'Montserrat'; 
-    font-size: 2rem; 
+/* HEADER */
+.game-header {
+    text-align: center;
+}
+
+.game-header h1 {
+    font-family: 'Montserrat';
+    font-size: 2rem;
     background: linear-gradient(to right, #fff, #94a3b8);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    margin-bottom: 5px;
 }
-.game-header p { color: var(--text-dim); font-size: 0.9rem; }
 
-/* --- STATS DASHBOARD --- */
-.stats-container { display: flex; gap: 20px; }
+.game-header p {
+    color: var(--text-dim);
+    font-size: 0.9rem;
+}
+
+/* STATS */
+.stats-container {
+    display: flex;
+    gap: 15px;
+}
 
 .stat-card {
     background: var(--card-bg);
     backdrop-filter: blur(10px);
     border: 1px solid var(--glass-border);
-    padding: 12px 25px;
-    border-radius: 16px;
+    padding: 10px 22px;
+    border-radius: 14px;
     text-align: center;
-    min-width: 140px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    min-width: 120px;
 }
 
-.stat-card span { font-size: 0.65rem; text-transform: uppercase; color: var(--text-dim); letter-spacing: 1px; }
-#score, #timer { font-size: 1.4rem; font-weight: 800; color: var(--primary); }
+.stat-card span {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    color: var(--text-dim);
+}
 
-/* --- ARENA DE CARGA (GLASSMORPHISM) --- */
+#score, #timer {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--primary);
+}
+
+/* ARENA */
 .arena {
     width: 100%;
-    max-width: 850px;
+    max-width: 820px;
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid var(--glass-border);
-    border-radius: 24px;
-    padding: 30px;
+    border-radius: 22px;
+    padding: 25px;
     position: relative;
 }
 
-/* O Item a ser arrastado */
+/* ITEM */
+.cargo-box {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
 .cargo-element {
     background: linear-gradient(135deg, var(--primary), #e67e22);
     color: #000;
-    padding: 18px 40px;
-    border-radius: 14px;
+    padding: 16px 35px;
+    border-radius: 12px;
     font-weight: 800;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     cursor: grab;
-    box-shadow: 0 0 30px var(--primary-glow);
-    transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    display: inline-block;
-    border: none;
+    box-shadow: 0 0 25px var(--primary-glow);
+    transition: 0.3s;
 }
 
-.cargo-element:active { transform: scale(0.95) rotate(-2deg); cursor: grabbing; }
+.cargo-element:active {
+    transform: scale(0.95);
+    cursor: grabbing;
+}
 
-.cargo-box { display: flex; justify-content: center; margin-bottom: 35px; }
-
-/* Zonas de Drop - Estilo Grid Industrial */
+/* ZONAS */
 .drop-zones {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -136,56 +172,88 @@ body {
 .zone {
     background: rgba(15, 23, 42, 0.5);
     border: 1px solid var(--glass-border);
-    padding: 20px 10px;
-    border-radius: 18px;
-    transition: 0.3s;
+    padding: 18px 10px;
+    border-radius: 16px;
+    transition: 0.25s;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.zone .icon { font-size: 2.2rem; margin-bottom: 10px; filter: drop-shadow(0 0 10px rgba(255,255,255,0.2)); }
-.zone strong { color: #fff; font-size: 0.9rem; margin-bottom: 4px; }
-.zone small { color: var(--text-dim); font-size: 0.7rem; }
-
-/* Estados da Zona */
-.zone.hover { 
-    background: rgba(56, 189, 248, 0.1); 
-    border-color: var(--accent-blue);
-    transform: translateY(-5px);
+.zone .icon {
+    font-size: 2rem;
+    margin-bottom: 8px;
 }
 
-/* --- BOTÃO DE AÇÃO --- */
-.controls { width: 100%; display: flex; justify-content: center; }
+.zone strong {
+    font-size: 0.9rem;
+}
+
+.zone small {
+    font-size: 0.7rem;
+    color: var(--text-dim);
+}
+
+/* HOVER CORRETO (JS usa drag-over) */
+.zone.drag-over {
+    background: rgba(56, 189, 248, 0.1);
+    border-color: var(--accent-blue);
+    transform: translateY(-4px);
+}
+
+/* FEEDBACK */
+.zone.correct {
+    background: rgba(34, 197, 94, 0.2);
+    border-color: var(--success);
+}
+
+.zone.error {
+    background: rgba(239, 68, 68, 0.2);
+    border-color: var(--error);
+}
+
+/* BOTÃO */
+.controls {
+    display: flex;
+    justify-content: center;
+}
 
 #btn-play {
     background: #fff;
     color: #000;
     border: none;
-    padding: 16px 60px;
-    font-size: 1rem;
+    padding: 14px 50px;
+    font-size: 0.95rem;
     font-weight: 800;
-    border-radius: 14px;
+    border-radius: 12px;
     cursor: pointer;
     transition: 0.3s;
     text-transform: uppercase;
-    letter-spacing: 1px;
 }
 
 #btn-play:hover {
     background: var(--primary);
     transform: scale(1.05);
-    box-shadow: 0 0 40px var(--primary-glow);
+    box-shadow: 0 0 30px var(--primary-glow);
 }
 
-/* Efeito de Scanline (Opcional - Estilo Sci-fi) */
+/* BOTÃO DESABILITADO */
+#btn-play:disabled {
+    background: #9ca3af;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}
+
+/* SCANLINE */
 .arena::before {
     content: "";
     position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%), 
-                linear-gradient(90deg, rgba(255, 0, 0, 0.02), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.02));
+    inset: 0;
+    background:
+        linear-gradient(rgba(18,16,16,0) 50%, rgba(0,0,0,0.1) 50%),
+        linear-gradient(90deg, rgba(255,0,0,0.02), rgba(0,255,0,0.01), rgba(0,0,255,0.02));
     background-size: 100% 4px, 3px 100%;
     pointer-events: none;
-    border-radius: 24px;
+    border-radius: 22px;
 }

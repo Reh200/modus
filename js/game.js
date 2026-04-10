@@ -1,17 +1,38 @@
 // Banco de dados do jogo
 const database = [
+
+    // LEVES (urbano / rápido)
     { name: "📦 Encomenda Shopee", target: "leves" },
     { name: "💊 Vacinas Urgentes", target: "leves" },
+    { name: "🍕 Delivery de Alimentos", target: "leves" },
+    { name: "📄 Documentos Expressos", target: "leves" },
+    { name: "💻 Equipamentos Eletrônicos", target: "leves" },
+    { name: "📦 Pequenos Pacotes", target: "leves" },
+
+    // PESADOS (carga geral / granel)
     { name: "🧱 Carga de Areia", target: "pesados" },
     { name: "⛽ Diesel S10", target: "pesados" },
+    { name: "🌽 Milho a Granel", target: "pesados" },
+    { name: "🪵 Madeira Serrada", target: "pesados" },
+    { name: "🛢️ Óleo Vegetal", target: "pesados" },
+    { name: "🚧 Materiais de Construção", target: "pesados" },
+    { name: "🚛 Carga Industrial Paletizada", target: "pesados" },
+
+    // ESPECIAIS (cargas especiais / grandes / específicas)
     { name: "🏗️ Peça de Guindaste", target: "especiais" },
-    { name: "🚜 Colheitadeira", target: "especiais" }
+    { name: "🚜 Colheitadeira", target: "especiais" },
+    { name: "🚗 Transporte de Veículos", target: "especiais" },
+    { name: "🏭 Máquina Industrial", target: "especiais" },
+    { name: "🚢 Estrutura Metálica Gigante", target: "especiais" },
+    { name: "⚙️ Transformador Elétrico", target: "especiais" }
+
 ];
 
 let score = 0;
-let timeLeft = 30;
+let timeLeft = 60;
 let gameRunning = false;
 let currentItem = null;
+let countdown = null;
 
 // Seletores
 const dragItem = document.getElementById('drag-item');
@@ -20,7 +41,7 @@ const timerDisplay = document.getElementById('timer');
 const btnPlay = document.getElementById('btn-play');
 const zones = document.querySelectorAll('.zone');
 
-// Função para sortear nova carga
+// Sortear carga
 function spawnCargo() {
     const random = Math.floor(Math.random() * database.length);
     currentItem = database[random];
@@ -28,19 +49,26 @@ function spawnCargo() {
     dragItem.style.display = "block";
 }
 
-// Iniciar Jogo
+// Iniciar jogo
 btnPlay.addEventListener('click', () => {
     score = 0;
-    timeLeft = 30;
+    timeLeft = 60;
     gameRunning = true;
+
     scoreDisplay.textContent = score;
     timerDisplay.textContent = timeLeft;
-    btnPlay.disabled = true;
-    dragItem.setAttribute('draggable', 'true');
-    
-    spawnCargo();
 
-    const countdown = setInterval(() => {
+    btnPlay.disabled = true;
+    btnPlay.textContent = "Operação em andamento...";
+
+    dragItem.setAttribute('draggable', 'true');
+    dragItem.textContent = "Preparando carga...";
+
+    setTimeout(() => {
+        spawnCargo();
+    }, 500);
+
+    countdown = setInterval(() => {
         timeLeft--;
         timerDisplay.textContent = timeLeft;
 
@@ -51,16 +79,19 @@ btnPlay.addEventListener('click', () => {
     }, 1000);
 });
 
+// Finalizar jogo
 function endGame() {
     gameRunning = false;
     dragItem.setAttribute('draggable', 'false');
-    dragItem.textContent = "Fim de Jogo!";
+    dragItem.textContent = "Operação finalizada";
+
     btnPlay.disabled = false;
     btnPlay.textContent = "Jogar Novamente";
-    alert("Tempo esgotado! Sua pontuação: " + score);
+
+    alert("Tempo esgotado! Pontuação: " + score);
 }
 
-// Lógica de Drag and Drop
+// Drag
 dragItem.addEventListener('dragstart', (e) => {
     if (!gameRunning) return;
     e.dataTransfer.setData('text/plain', currentItem.target);
@@ -71,9 +102,11 @@ dragItem.addEventListener('dragend', () => {
     dragItem.style.opacity = "1";
 });
 
+// Drop zones
 zones.forEach(zone => {
+
     zone.addEventListener('dragover', (e) => {
-        e.preventDefault(); // Necessário para permitir o drop
+        e.preventDefault();
         zone.classList.add('drag-over');
     });
 
@@ -84,7 +117,7 @@ zones.forEach(zone => {
     zone.addEventListener('drop', (e) => {
         e.preventDefault();
         zone.classList.remove('drag-over');
-        
+
         if (!gameRunning) return;
 
         const droppedTarget = e.dataTransfer.getData('text/plain');
@@ -93,11 +126,18 @@ zones.forEach(zone => {
         if (droppedTarget === zoneTarget) {
             score += 10;
             scoreDisplay.textContent = score;
-            spawnCargo(); // Gera o próximo item
+
+            // Feedback visual positivo
+            zone.style.backgroundColor = "rgba(46, 204, 113, 0.2)";
+            setTimeout(() => zone.style.backgroundColor = "", 300);
+
+            spawnCargo();
+
         } else {
-            // Penalidade de tempo ou apenas erro visual
+            // Feedback negativo
             zone.style.backgroundColor = "rgba(231, 76, 60, 0.2)";
             setTimeout(() => zone.style.backgroundColor = "", 300);
         }
     });
+
 });
