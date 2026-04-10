@@ -138,12 +138,15 @@ body {
 .cards-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    /* 3 por linha */
     gap: 25px;
+    align-items: stretch; /* 🔥 garante mesma altura na linha */
 }
 
 /* CARD */
 .card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
     background: #ffffff;
     border-radius: 18px;
     overflow: hidden;
@@ -178,24 +181,55 @@ body {
 
 /* CONTEÚDO */
 .card-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
     padding: 18px;
 }
 
+/* META */
 .meta {
     font-size: 0.75rem;
     color: #64748b;
     margin-bottom: 8px;
 }
 
+/* TÍTULO */
 .card-content h3 {
     font-family: 'Montserrat', sans-serif;
     font-size: 1.1rem;
     margin-bottom: 10px;
+    min-height: 48px; /* mantém alinhamento */
 }
 
+/* TEXTO (SEM CORTE) */
 .card-content p {
     font-size: 0.9rem;
     line-height: 1.5;
+    text-align: justify;
+}
+
+/* DESTAQUE */
+.data-highlight {
+    color: #f39c12;
+    font-weight: 700;
+}
+
+/* RESPONSIVO */
+@media (max-width: 1024px) {
+    .cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .cards-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .card-content p {
+        text-align: left;
+    }
 }
 
 /* DESTAQUE DE DADOS */
